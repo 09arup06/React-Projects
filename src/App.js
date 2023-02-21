@@ -53,7 +53,7 @@ function App() {
     <>
     
     <Router>
-<Navbar title='Text Utils by Arup' mode={mode} toggle={toggle} newc={newc} showAlert={showAlert}/>
+<Navbar title='Text Utils by Arup' aboutText='About' mode={mode} toggle={toggle} newc={newc} showAlert={showAlert}/>
 <Alert alert={alert}/>
 <div className='container'>
 
@@ -62,13 +62,13 @@ function App() {
             element={<About/>}
           />
           <Route path="/React-Projects/"
-         element={ <TextForm showAlert={showAlert} head="Enter the text to analyze"/>}
+         element={ <TextForm showAlert={showAlert} mode={mode} head="Enter the text to analyze"/>}
           />
           <Route path="/Home"
-         element={ <TextForm showAlert={showAlert} head="Enter the text to analyze"/>}
+         element={ <TextForm showAlert={showAlert} mode={mode}  head="Enter the text to analyze"/>}
           />
           <Route path="/"
-         element={ <TextForm showAlert={showAlert} head="Enter the text to analyze"/>}
+         element={ <TextForm showAlert={showAlert} mode={mode} head="Enter the text to analyze"/>}
           />       
           <Route exact path="https://09arup06.github.io/React-Projects/"
          element={ <TextForm showAlert={showAlert} head="Enter the text to analyze"/>}

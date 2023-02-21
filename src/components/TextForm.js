@@ -42,14 +42,14 @@ export default function TextForm(props) {
         <h1 style={{color:"#aa0ec2"}}>{props.head}</h1>
         
     <div className="mb-3">
-    <textarea className="form-control" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="10"></textarea>
+    <textarea className="form-control" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" style={{backgroundColor: props.mode==='dark'?'rgb(97 189 189 / 47%)':'white'}} rows="10"></textarea>
     </div>
   
-  <button className='btn btn-primary 'onClick={upper}> CONVERT TO UPPERCASE</button>
-  <button className="btn btn-primary mx-3"onClick={lower}> CONVERT TO LOWERCASE</button>
-  <button className="btn btn-primary mx-auto"onClick={clr}> Clear Field</button>
-  <button className="btn btn-primary mx-3"onClick={speak}> Pronounce</button>
-  <button className="btn btn-primary mx-auto"onClick={spaces}> Remove Extra Spaces</button>
+  <button disabled={text.length===0} className='btn btn-primary mx-2 my-1'onClick={upper}> CONVERT TO UPPERCASE</button>
+  <button disabled={text.length===0} className="btn btn-primary mx-2 my-1"onClick={lower}> CONVERT TO LOWERCASE</button>
+  <button disabled={text.length===0} className="btn btn-primary mx-2 my-1"onClick={clr}> Clear Field</button>
+  <button disabled={text.length===0} className="btn btn-primary mx-2 my-1"onClick={speak}> Pronounce</button>
+  <button disabled={text.length===0} className="btn btn-primary mx-2 my-1"onClick={spaces}> Remove Extra Spaces</button>
   </div>
 
     <div className="container my-3" >
@@ -58,14 +58,14 @@ export default function TextForm(props) {
     <div className='my-3 mx-5'style={{color:"#8c1818"}}>
       <h5>
     <li>{text.length && text.length -text.split(" ").length+1-text.split(/\r\n|\r|\n/).length+1} characters</li>
-    <li>{text.length && text.split(/[   ]+/).length} words</li>
+    <li>{text.length && text.split(" ").filter((element)=>{return element.length!==0 }).length} words</li>
     <li>{text.length && text.split(/\r\n|\r|\n/).length} line(s)</li>
     <li>Vowels: {text.split(/[aeiou]/gi).length-1}</li></h5></div>
 
     </div>
     <div className="container my-3">
         <h1 style={{color:"#aa0ec2"}}> Preview </h1>
-        <p>{text.length>0?text:"Enter something to Preview"}</p>
+        <p>{text.length>0?text:"Nothing to Preview!!!"}</p>
     </div>
 
 
