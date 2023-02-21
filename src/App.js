@@ -53,8 +53,9 @@ function App() {
     <>
     
     <Router>
-<Navbar title='First React Page' mode={mode} toggle={toggle} newc={newc} showAlert={showAlert}/>
+<Navbar title='Text Utils by Arup' mode={mode} toggle={toggle} newc={newc} showAlert={showAlert}/>
 <Alert alert={alert}/>
+<TextForm showAlert={showAlert} head="Enter the text to analyze"/>
 <div className='container'>
 
 <Routes>
