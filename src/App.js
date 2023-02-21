@@ -61,6 +61,12 @@ function App() {
           < Route path="/about"
             element={<About/>}
           />
+          <Route path="React-Projects/"
+         element={ <TextForm showAlert={showAlert} head="Enter the text to analyze"/>}
+          />
+          <Route path="/Home"
+         element={ <TextForm showAlert={showAlert} head="Enter the text to analyze"/>}
+          />
           <Route path="/"
          element={ <TextForm showAlert={showAlert} head="Enter the text to analyze"/>}
           />
