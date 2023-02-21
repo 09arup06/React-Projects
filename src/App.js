@@ -69,6 +69,9 @@ function App() {
           />
           <Route path="/"
          element={ <TextForm showAlert={showAlert} head="Enter the text to analyze"/>}
+          />       
+          <Route exact path="https://09arup06.github.io/React-Projects/"
+         element={ <TextForm showAlert={showAlert} head="Enter the text to analyze"/>}
           />
           </Routes>
           </div>
