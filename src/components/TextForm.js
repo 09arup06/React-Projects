@@ -25,6 +25,10 @@ export default function TextForm(props) {
       setText("");
       props.showAlert("The text has been deleted successfully","danger")
     }
+    const copyt=()=>{
+      navigator.clipboard.writeText(text);
+      props.showAlert("The text has been copied successfully","primary")
+    }
   const speak = () => {
   let msg = new SpeechSynthesisUtterance();
   msg.text = text;
@@ -50,6 +54,7 @@ export default function TextForm(props) {
   <button disabled={text.length===0} className="btn btn-primary mx-2 my-1"onClick={clr}> Clear Field</button>
   <button disabled={text.length===0} className="btn btn-primary mx-2 my-1"onClick={speak}> Pronounce</button>
   <button disabled={text.length===0} className="btn btn-primary mx-2 my-1"onClick={spaces}> Remove Extra Spaces</button>
+  <button disabled={text.length===0} className="btn btn-primary mx-2 my-1"onClick={copyt}> Copy Text</button>
   </div>
 
     <div className="container my-3" >
@@ -58,7 +63,7 @@ export default function TextForm(props) {
     <div className='my-3 mx-5'style={{color:"#8c1818"}}>
       <h5>
     <li>{text.length && text.length -text.split(" ").length+1-text.split(/\r\n|\r|\n/).length+1} characters</li>
-    <li>{text.length && text.split(" ").filter((element)=>{return element.length!==0 }).length} words</li>
+    <li>{text.length && text.split(/\s+/).filter((element)=>{return element.length!==0 }).length} words</li>
     <li>{text.length && text.split(/\r\n|\r|\n/).length} line(s)</li>
     <li>Vowels: {text.split(/[aeiou]/gi).length-1}</li></h5></div>
 
